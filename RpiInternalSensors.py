@@ -7,6 +7,16 @@ class RpiInternalSensors:
         temp = self.parse_lines(lines)['temp'][:-2]
         return temp
 
+    def get_ram_split(self):
+        lines_arm = subprocess.check_output(["vcgencmd", "get_mem", "arm"])
+        lines_gpu = subprocess.check_output(["vcgencmd", "get_mem", "gpu"])
+        arm = self.parse_lines(lines_arm)['arm']
+        gpu = self.parse_lines(lines_gpu)['gpu']
+        return {
+            "arm": arm,
+            "gpu": gpu
+        }
+
     def parse_lines(self, lines):
         split_lines = lines.split("\n")
         dict_response = {}
