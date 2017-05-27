@@ -1,6 +1,6 @@
-from RpiInternalSensors import RpiInternalSensors
+from RaspberryPiVcgencmd import RaspberryPiVcgencmd
 
-sen = RpiInternalSensors()
+sen = RaspberryPiVcgencmd()
 
 print sen.get_cpu_temp(), "'C"
 print sen.get_cpu_temp(fahrenheit=True), "'F"

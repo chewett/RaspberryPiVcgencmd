@@ -1,6 +1,6 @@
 import subprocess
 
-class RpiInternalSensors:
+class RaspberryPiVcgencmd:
 
     def get_cpu_temp(self, fahrenheit=False):
         lines = subprocess.check_output(["vcgencmd", "measure_temp"])
