@@ -27,7 +27,17 @@ class RaspberryPiVcgencmd:
             data = self._parse_lines(lines)
             return float(data['volt'][:-1])
         else:
-            raise ValueError("type must be one of core, sdram_c, sdram_i, sdram_p")
+            raise ValueError("Type must be one of core, sdram_c, sdram_i, sdram_p")
+
+    def is_codec_available(self, codec):
+        if codec in ["H264", "MPG2", "WVC1", "MPG4", "MJPG", "WMV9"]:
+            line = subprocess.check_output(["line", "codec_enabled", codec])
+            return self._parse_line_get_value(line)
+        else:
+            raise ValueError("Codec must be one of H264, MPG2, WVC1, MPG4, MJPG, WMV9")
+
+    def _parse_line_get_value(self, line):
+        return line.split("=")[1]
 
     def _parse_lines(self, lines):
         split_lines = lines.split("\n")
