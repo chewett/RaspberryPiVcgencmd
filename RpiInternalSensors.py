@@ -4,7 +4,7 @@ class RpiInternalSensors:
 
     def get_cpu_temp(self, fahrenheit=False):
         lines = subprocess.check_output(["vcgencmd", "measure_temp"])
-        temp = float(self.parse_lines(lines)['temp'][:-2])
+        temp = float(self._parse_lines(lines)['temp'][:-2])
 
         if fahrenheit:
             temp = ((temp * 9.0)/5.0) + 32
