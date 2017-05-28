@@ -7,15 +7,16 @@ print sen.get_cpu_temp(fahrenheit=True), "'F"
 
 print "Ram split", sen.get_ram_split()
 
-print "Core voltage", sen.measure_volts()
-print "sdram_c voltage", sen.measure_volts("sdram_c")
-print "sdram_i voltage", sen.measure_volts("sdram_i")
-print "sdram_p voltage", sen.measure_volts("sdram_p")
+voltages_to_test = ["core", "sdram_c", "sdram_i", "sdram_p"]
+for voltage in voltages_to_test:
+    print voltage, "voltage", sen.measure_volts(voltage)
 
-print "H264 available", sen.is_codec_available("H264")
-print "MPG2 available", sen.is_codec_available("MPG2")
-print "WVC1 available", sen.is_codec_available("WVC1")
-print "MPG4 available", sen.is_codec_available("MPG4")
-print "MJPG available", sen.is_codec_available("MJPG")
-print "WMV9 available", sen.is_codec_available("WMV9")
+codecs_to_test = ["H264", "MPG2", "WVC1", "MPG4", "MJPG", "WMV9"]
+for codec in codecs_to_test:
+    print codec, "available", sen.is_codec_available(codec)
 
+clocks_to_measure = ["arm", "core", "h264", "isp", "v3d", "uart", "pwm", "emmc", "pixel", "vec", "hdmi", "dpi"]
+for clock in clocks_to_measure:
+    print clock, "speed", sen.measure_clock(clock)
+
+print "Version: ", sen.get_version()

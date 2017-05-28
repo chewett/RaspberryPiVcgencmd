@@ -29,12 +29,29 @@ class RaspberryPiVcgencmd:
         else:
             raise ValueError("Type must be one of core, sdram_c, sdram_i, sdram_p")
 
+    def measure_clock(self, type):
+        if type in ["arm", "core", "h264", "isp", "v3d", "uart", "pwm", "emmc", "pixel", "vec", "hdmi", "dpi"]:
+            line = subprocess.check_output(["vcgencmd", "measure_clock", type])
+            return self._parse_line_get_value(line)
+        else:
+            raise ValueError("Type must be on of arm, core, h264, isp, v3d, uart, pwm, emmc, pixel, vec, hdmi, dpi")
+
     def is_codec_available(self, codec):
         if codec in ["H264", "MPG2", "WVC1", "MPG4", "MJPG", "WMV9"]:
-            line = subprocess.check_output(["line", "codec_enabled", codec])
+            line = subprocess.check_output(["vcgencmd", "codec_enabled", codec])
             return self._parse_line_get_value(line)
         else:
             raise ValueError("Codec must be one of H264, MPG2, WVC1, MPG4, MJPG, WMV9")
+
+    def get_version(self):
+        return subprocess.check_output(["vcgencmd", "version"])
+
+    def set_display_power(self, power):
+        if power in [0, 1]:
+            subprocess.check_output(["vcgencmd", str(power)])
+        else:
+            raise ValueError("Power must be either 0 or 1")
+
 
     def _parse_line_get_value(self, line):
         return line.split("=")[1]
