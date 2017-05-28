@@ -55,13 +55,13 @@ class RaspberryPiVcgencmd:
         """Returns whether the codec is available on the Raspberry Pi"""
         if codec in ["H264", "MPG2", "WVC1", "MPG4", "MJPG", "WMV9"]:
             line = subprocess.check_output(["vcgencmd", "codec_enabled", codec])
-            return self._parse_line_get_value(line)
+            return (self._parse_line_get_value(line) == "enabled")
         else:
             raise ValueError("Codec must be one of H264, MPG2, WVC1, MPG4, MJPG, WMV9")
 
     def get_version(self):
         """Gets the version string of the firmware"""
-        return subprocess.check_output(["vcgencmd", "version"])
+        return subprocess.check_output(["vcgencmd", "version"]).rstrip()
 
     def set_display_power(self, power):
         """Sets the display power of the Raspberry Pi, warning setting this to 0 will disable video output"""
@@ -72,7 +72,7 @@ class RaspberryPiVcgencmd:
 
     def _parse_line_get_value(self, line):
         """Helper function to get the output from vcgencmd and parse it"""
-        return line.split("=")[1]
+        return line.split("=")[1].rstrip()
 
     def _parse_lines(self, lines):
         """Helper function to parse multiline output"""
