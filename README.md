@@ -14,4 +14,5 @@ Todo
 
 ## Want to help?
 
-Todo
+Suggestions and improvements are welcome, if you have anything to add
+feel free to make a pull request on github
