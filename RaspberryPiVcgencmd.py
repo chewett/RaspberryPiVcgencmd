@@ -54,7 +54,7 @@ class RaspberryPiVcgencmd:
 
 
     def _parse_line_get_value(self, line):
-        return line.split("=")[1]
+        return line.split("=")[1].rstrip()
 
     def _parse_lines(self, lines):
         split_lines = lines.split("\n")
