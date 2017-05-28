@@ -6,7 +6,27 @@ sensors of the Raspberry Pi
 
 ## Usage
 
-Todo add this section
+Add the module into your git repository as a submodule and then commit it
+
+```
+git submodule add https://github.com/chewett/RaspberryPiVcge
+ncmd
+git commit
+```
+
+Include the module in your python file
+
+`from RaspberryPiVcgencmd.RaspberryPiVcgencmd import RaspberryPiVcgencmd`
+
+Once you have included it you can use it in your program as below
+
+```
+vcgencmd = RaspberryPiVcgencmd()
+print vcgencmd.get_version()
+```
+
+
+
 
 ## Todo
 
