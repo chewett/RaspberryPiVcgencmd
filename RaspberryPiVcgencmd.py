@@ -39,12 +39,12 @@ class RaspberryPiVcgencmd:
     def is_codec_available(self, codec):
         if codec in ["H264", "MPG2", "WVC1", "MPG4", "MJPG", "WMV9"]:
             line = subprocess.check_output(["vcgencmd", "codec_enabled", codec])
-            return self._parse_line_get_value(line)
+            return (self._parse_line_get_value(line) == "enabled")
         else:
             raise ValueError("Codec must be one of H264, MPG2, WVC1, MPG4, MJPG, WMV9")
 
     def get_version(self):
-        return subprocess.check_output(["vcgencmd", "version"])
+        return subprocess.check_output(["vcgencmd", "version"]).rstrip()
 
     def set_display_power(self, power):
         if power in [0, 1]:
