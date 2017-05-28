@@ -24,8 +24,17 @@ vcgencmd = RaspberryPiVcgencmd()
 print vcgencmd.get_version()
 ```
 
+## Exposed Functions
 
+The majority of the useful output from vcgencmd is exposed in the class with the below functions
 
+* get_cpu_temp - Gets the system temperature of the soc in Celsius or Fahrenheit
+* get_ram_split - Gets the memory split between the gpu and cpu
+* measure_volts - Measures the voltage of various internal components
+* measure_clock - Mesures the clock frequency of various internal components
+* is_codec_available - Returns whether the codec specificed video/audio codec is available on the Raspberry Pi
+* get_version - Gets the version of the firmware installed on the Raspberry Pi
+* set_display_power - Allows turning off/on the video output of the Raspberry Pi
 
 ## Todo
 
