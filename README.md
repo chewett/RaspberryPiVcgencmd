@@ -9,8 +9,7 @@ sensors of the Raspberry Pi
 Add the module into your git repository as a submodule and then commit it
 
 ```
-git submodule add https://github.com/chewett/RaspberryPiVcge
-ncmd
+git submodule add https://github.com/chewett/RaspberryPiVcgencmd
 git commit
 ```
 
