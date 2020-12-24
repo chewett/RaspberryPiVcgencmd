@@ -61,7 +61,7 @@ class RaspberryPiVcgencmd:
 
     def get_version(self):
         """Gets the version string of the firmware"""
-        return subprocess.check_output(["vcgencmd", "version"]).rstrip()
+        return subprocess.check_output(["vcgencmd", "version"]).decode("utf-8").rstrip()
 
     def set_display_power(self, power):
         """Sets the display power of the Raspberry Pi, warning setting this to 0 will disable video output"""
@@ -72,11 +72,11 @@ class RaspberryPiVcgencmd:
 
     def _parse_line_get_value(self, line):
         """Helper function to get the output from vcgencmd and parse it"""
-        return line.split("=")[1].rstrip()
+        return line.decode("utf-8").split("=")[1].rstrip()
 
     def _parse_lines(self, lines):
         """Helper function to parse multiline output"""
-        split_lines = lines.split("\n")
+        split_lines = lines.decode("utf-8").split("\n")
         dict_response = {}
         for line in split_lines:
             equal_split = line.split("=")
