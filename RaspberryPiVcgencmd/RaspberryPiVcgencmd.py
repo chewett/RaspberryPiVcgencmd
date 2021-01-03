@@ -9,6 +9,7 @@ class RaspberryPiVcgencmd:
 
     def __init__(self):
         # TODO: add a "vcgencmd run" check and first time its called we should check what commands are supported
+        # TODO: allow specifying where vcgencmd lives.
         pass
 
     def get_cpu_temp(self, fahrenheit=False):

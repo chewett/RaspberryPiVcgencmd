@@ -1,4 +1,4 @@
-from RaspberryPiVcgencmd import RaspberryPiVcgencmd
+from RaspberryPiVcgencmd.RaspberryPiVcgencmd import RaspberryPiVcgencmd
 
 sen = RaspberryPiVcgencmd()
 
