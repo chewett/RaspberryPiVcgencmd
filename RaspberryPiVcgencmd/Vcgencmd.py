@@ -2,7 +2,7 @@ import subprocess
 
 __author__ = "Christopher Hewett <chewett@hotmail.co.uk>"
 
-class RaspberryPiVcgencmd:
+class Vcgencmd:
     """
         Helper function to get information in a python way out of the vcgencmd Raspberry Pi executable
     """

@@ -1,2 +1,5 @@
 *.pyc
 .idea
+build
+RaspberryPiVcgencmd.egg-info
+dist
