@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='RaspberryPiVcgencmd',
-    version='0.2',
+    version='0.2.1',
     packages=['RaspberryPiVcgencmd'],
     url='https://github.com/chewett/RaspberryPiVcgencmd',
     license='MIT',
