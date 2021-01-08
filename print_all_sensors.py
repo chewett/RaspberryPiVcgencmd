@@ -1,6 +1,6 @@
-from RaspberryPiVcgencmd.RaspberryPiVcgencmd import RaspberryPiVcgencmd
+from RaspberryPiVcgencmd import Vcgencmd
 
-sen = RaspberryPiVcgencmd()
+sen = Vcgencmd()
 
 print(sen.get_cpu_temp(), "'C")
 print(sen.get_cpu_temp(fahrenheit=True), "'F")

@@ -1,26 +1,23 @@
 Raspberry Pi Vcgencmd
 =============================
 
-A small python library to programmatically access some of the internal
-sensors of the Raspberry Pi
+A small python library to programmatically access the internal
+sensors of the Raspberry Pi.
 
 ## Usage
 
-Add the module into your git repository as a submodule and then commit it
+Install this via pip:
 
-```
-git submodule add https://github.com/chewett/RaspberryPiVcgencmd
-git commit
-```
+`python3 -m pip install RaspberryPiVcgencmd`
 
 Include the module in your python file
 
-`from RaspberryPiVcgencmd.RaspberryPiVcgencmd import RaspberryPiVcgencmd`
+`from RaspberryPiVcgencmd import Vcgencmd`
 
 Once you have included it you can use it in your program as below
 
 ```
-vcgencmd = RaspberryPiVcgencmd()
+vcgencmd = Vcgencmd()
 print vcgencmd.get_version()
 ```
 
@@ -48,4 +45,4 @@ different formatting methods
 ## Want to help?
 
 Suggestions and improvements are welcome, if you have anything to add
-feel free to make a pull request on github
+feel free to make a pull request on [github](https://github.com/chewett/RaspberryPiVcgencmd).
