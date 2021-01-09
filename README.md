@@ -18,7 +18,7 @@ Once you have included it you can use it in your program as below
 
 ```
 vcgencmd = Vcgencmd()
-print vcgencmd.get_version()
+print(vcgencmd.get_version())
 ```
 
 ## Exposed Functions
